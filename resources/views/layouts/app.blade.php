@@ -38,7 +38,7 @@
                             <a class="nav-link active" aria-current="page" href="{{ route('books.index') }}">Buku</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Daftar Booking</a>
+                            <a class="nav-link" href="{{ route('orders.submitted') }}">Antrian</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Daftar Pinjaman</a>

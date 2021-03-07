@@ -16,7 +16,7 @@ class AddFilePath extends Migration
         Schema::table('books', function (Blueprint $table) {
             $table->string('cover_url')->nullable();
             $table->string('cover_id')->nullable();
-            $table->bigInteger('category_id')->nullable();
+            $table->unsignedBigInteger('category_id');
         });
     }
 
