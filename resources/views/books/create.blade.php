@@ -27,7 +27,7 @@
                         </div>
                     </div>
                      
-                    <form action="{{ route('books.store') }}" method="POST">
+                    <form action="{{ route('books.store') }}" method="POST" enctype="multipart/form-data">
                         @csrf
                      
                          <div class="row">
@@ -47,6 +47,26 @@
                                 <div class="form-group">
                                     <strong>Tahun Terbit:</strong>
                                     <input type="number" name="release_year" class="form-control" placeholder="Tahun Terbit">
+                                </div>
+                            </div>
+
+                            <div class="col-xs-12 col-sm-12 col-md-12">
+                                <div class="form-group">
+                                    <strong>Category Terbit:</strong>
+                                    <select class="custom-select" name="category">
+                                        <option selected>Pilih...</option>
+                                        <option value="1">Pelajaran</option>
+                                        <option value="2">Novel</option>
+                                        <option value="3">Laporan KP</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            
+                            <div class="col-xs-12 col-sm-12 col-md-12">
+                                <div class="form-group">
+                                    <strong>Cover:</strong>
+                                    <input type="file" name="image" class="form-control">
                                 </div>
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-12 text-center">

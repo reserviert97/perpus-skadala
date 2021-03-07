@@ -42,9 +42,22 @@ class BookController extends Controller
             'title' => 'required',
             'release_year' => 'required|integer',
             'author' => 'required',
+            'image' => 'required',
+            'category' => 'required',
         ]);
- 
-        Book::create($request->all());
+
+        $result = $request->file('image')->storeOnCloudinary('books_cover');
+        $filePath = $result->getSecurePath();
+        $image_id = $result->getPublicId();
+
+        Book::create([
+            'title' => $request->title,
+            'release_year' => $request->release_year,
+            'author' => $request->author,
+            'cover_url' => $filePath,
+            'cover_id' => $image_id,
+            'category_id' => $request->category,
+        ]);
  
         return redirect()->route('books.index')
                         ->with('success','Buku berhasil ditambahkan');
